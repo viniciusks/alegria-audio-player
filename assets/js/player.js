@@ -38,6 +38,23 @@ export default {
     this.update();
     this.play();
   },
+  manualNext() {
+    this.pause();
+    this.currentPlaying++;
+    if (this.currentPlaying == this.audioData.length) this.restart();
+    this.update();
+    this.play();
+  },
+  manualPrevious() {
+    this.pause();
+    if (this.currentPlaying == 0) {
+      this.currentPlaying = this.audioData.length - 1;
+    } else {
+      this.currentPlaying--;
+    }
+    this.update();
+    this.play();
+  },
   setVolume(value) {
     this.audio.volume = value / 100;
   },
@@ -55,7 +72,7 @@ export default {
     )}') no-repeat center center / cover`;
     this.title.innerHTML = this.currentAudio.title;
     this.artist.innerHTML = this.currentAudio.artist;
-    elements.createAudioElement.call(this, path(this.currentAudio.file));
+    elements.createAudioElement.call(this, this.currentAudio.file);
     this.audio.onloadeddata = () => {
       elements.actions.call(this);
     };
