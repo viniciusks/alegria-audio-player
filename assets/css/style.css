@@ -91,3 +91,11 @@ input[type="range"]::-ms-thumb {
   color: var(--primary);
   font-size: 40px;
 }
+
+.btn-download {
+  background-color: var(--secondary);
+}
+
+.btn-download:hover {
+  background-color: var(--primary);
+}
