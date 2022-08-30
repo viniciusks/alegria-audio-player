@@ -92,10 +92,13 @@ input[type="range"]::-ms-thumb {
   font-size: 40px;
 }
 
-.btn-download {
+.btn-footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   background-color: var(--secondary);
 }
 
-.btn-download:hover {
+.btn-footer:hover {
   background-color: var(--primary);
 }
