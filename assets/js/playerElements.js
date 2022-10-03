@@ -1,5 +1,7 @@
 import { secondsToMinutes } from "./utils.js";
 
+const url = "http://localhost:3000";
+
 export default {
   getElements() {
     this.cover = document.querySelector(".card-image");
@@ -13,6 +15,7 @@ export default {
     this.totalDuration = document.querySelector("#total-duration");
     this.skipPrevious = document.querySelector("#skipPrevious");
     this.skipNext = document.querySelector("#skipNext");
+    this.buttonAlbums = document.querySelector("#listAlbums");
   },
   createAudioElement(audio) {
     this.audio = new Audio(audio);
@@ -30,5 +33,6 @@ export default {
     this.totalDuration.innerText = secondsToMinutes(this.audio.duration);
     this.skipPrevious.onclick = () => this.manualPrevious();
     this.skipNext.onclick = () => this.manualNext();
+    this.buttonAlbums.onclick = () => this.getAlbums(url);
   },
 };

@@ -102,3 +102,24 @@ input[type="range"]::-ms-thumb {
 .btn-footer:hover {
   background-color: var(--primary);
 }
+
+.btn-album {
+  width: 100%;
+}
+
+/* ALBUMS  */
+ul#albums {
+  max-height: 10rem;
+  overflow: auto;
+}
+
+ul#albums li {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+ul#albums li h6 {
+  text-align: left;
+  font-size: normal;
+}
