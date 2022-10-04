@@ -103,6 +103,10 @@ input[type="range"]::-ms-thumb {
   background-color: var(--primary);
 }
 
+.btn-footer:focus {
+  background-color: var(--primary);
+}
+
 .btn-album {
   width: 100%;
 }
@@ -116,11 +120,12 @@ ul#albums {
 ul#albums li {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
   margin: 0.5rem 0;
 }
 
-ul#albums li h6 {
+ul#albums li span {
   text-align: left;
   font-size: normal;
 }

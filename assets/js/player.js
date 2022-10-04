@@ -83,7 +83,7 @@ export default {
   },
   getAlbums(url) {
     let albumsList = document.querySelector("#albums");
-
+    console.log(albumsList.firstChild);
     if (albumsList.firstChild == null) {
       fetch(`${url}/albums`, {
         method: "GET",
@@ -95,13 +95,12 @@ export default {
           return response.json();
         })
         .then((object) => {
-
           let albums = object.data;
 
           albums.map((album) => {
             // Cria elementos de cada item da lista álbuns
             let li = document.createElement("li");
-            let h6 = document.createElement("h6");
+            let h6 = document.createElement("span");
             let btn = document.createElement("button");
             let icon = document.createElement("i");
 
@@ -123,7 +122,7 @@ export default {
         });
     } else {
       // Esvazia a lista
-      albumsList.innerHTML == "";
+      albumsList.innerHTML = "";
     }
   },
 };
