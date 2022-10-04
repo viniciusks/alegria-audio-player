@@ -82,35 +82,48 @@ export default {
     this.update();
   },
   getAlbums(url) {
-    fetch(`${url}/albums`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        return response.json();
+    let albumsList = document.querySelector("#albums");
+
+    if (albumsList.firstChild == null) {
+      fetch(`${url}/albums`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .then((object) => {
-        console.log(object.data);
-        let albumsList = document.querySelector("#albums");
-        let albums = object.data;
+        .then((response) => {
+          return response.json();
+        })
+        .then((object) => {
 
-        albums.map((album) => {
-          console.log(album.name);
-          let li = document.createElement("li");
-          let h6 = document.createElement("h6");
-          let btn = document.createElement("button");
-          btn.classList.add("btn");
-          btn.classList.add("btn-footer");
+          let albums = object.data;
 
-          h6.innerHTML = String(album.name);
-          btn.innerHTML = "Tocar";
+          albums.map((album) => {
+            // Cria elementos de cada item da lista álbuns
+            let li = document.createElement("li");
+            let h6 = document.createElement("h6");
+            let btn = document.createElement("button");
+            let icon = document.createElement("i");
 
-          li.append(h6);
-          li.append(btn);
-          albumsList.append(li);
+            // Configura as informações de cada elemento
+            btn.classList.add("btn");
+            btn.classList.add("btn-footer");
+            icon.classList.add("material-icons");
+
+            // Passa as informações de texto
+            h6.innerHTML = String(album.name);
+            icon.innerHTML = "play_arrow";
+
+            // Adiciona elementos dentro de elementos
+            btn.append(icon);
+            li.append(h6);
+            li.append(btn);
+            albumsList.append(li);
+          });
         });
-      });
+    } else {
+      // Esvazia a lista
+      albumsList.innerHTML == "";
+    }
   },
 };
