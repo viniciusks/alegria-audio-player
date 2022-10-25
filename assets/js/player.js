@@ -83,7 +83,8 @@ export default {
   },
   getAlbums(url) {
     let albumsList = document.querySelector("#albums");
-    console.log(albumsList.firstChild);
+    let musicsDownload = document.querySelector("#musics-download");
+
     if (albumsList.firstChild == null) {
       fetch(`${url}/albums`, {
         method: "GET",
@@ -108,6 +109,12 @@ export default {
             btn.classList.add("btn");
             btn.classList.add("btn-footer");
             icon.classList.add("material-icons");
+
+            btn.onclick = () => {
+              console.log(album.musics);
+              this.audioData = album.musics;
+              this.update();
+            };
 
             // Passa as informações de texto
             h6.innerHTML = String(album.name);
