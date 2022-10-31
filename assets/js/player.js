@@ -111,9 +111,12 @@ export default {
             icon.classList.add("material-icons");
 
             btn.onclick = () => {
-              console.log(album.musics);
+              this.currentPlaying = 0;
+              musicsDownload.href = album.link;
               this.audioData = album.musics;
+              this.pause();
               this.update();
+              this.play();
             };
 
             // Passa as informações de texto
