@@ -1,4 +1,4 @@
-# Alegria Audio Player
+# Alegria Audio Player Test
 Este é um código destinado para a atender a demanda do audio player da Alegria Cristã.
 Desenvolvimento sendo realizado em HTML, CSS e Javascript puro.
 
