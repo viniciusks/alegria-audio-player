@@ -96,7 +96,7 @@ export default {
           return response.json();
         })
         .then((object) => {
-          let albums = object.data;
+          let albums = object;
 
           albums.map((album) => {
             // Cria elementos de cada item da lista álbuns
