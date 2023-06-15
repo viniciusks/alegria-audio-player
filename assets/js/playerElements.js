@@ -1,6 +1,6 @@
 import { secondsToMinutes } from "./utils.js";
 
-const url = "https://api-player.alegriacrista-tech.com.br";
+const url = "https://us-central1-alegriatech-2bf22.cloudfunctions.net";
 
 export default {
   getElements() {

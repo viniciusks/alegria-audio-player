@@ -96,9 +96,9 @@ export default {
           return response.json();
         })
         .then((object) => {
-          let albums = object;
+          let albums = object.data;
 
-          albums.map((album) => {
+          albums.map((body) => {
             // Cria elementos de cada item da lista álbuns
             let li = document.createElement("li");
             let h6 = document.createElement("span");
@@ -112,15 +112,15 @@ export default {
 
             btn.onclick = () => {
               this.currentPlaying = 0;
-              musicsDownload.href = album.link;
-              this.audioData = album.musics;
+              musicsDownload.href = body.album.link;
+              this.audioData = body.album.musics;
               this.pause();
               this.update();
               this.play();
             };
 
             // Passa as informações de texto
-            h6.innerHTML = String(album.name);
+            h6.innerHTML = String(body.album.name);
             icon.innerHTML = "play_arrow";
 
             // Adiciona elementos dentro de elementos
